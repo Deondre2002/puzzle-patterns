@@ -22,7 +22,8 @@ export function sumToN(n) {
  * @returns `1` if n is 0
  */
 export function factorial(n) {
-  // TODO
+ if (n === 0) || n === 1) {
+  return 1; 
 }
 
 /**
@@ -32,7 +33,11 @@ export function factorial(n) {
  * @returns `[]` if n is 0 or negative
  */
 export function buildNArray(n) {
-  // TODO
+  const result = [];
+  for (let i = 1; i <= n; i++) {
+    result.push(i);
+  }
+  return result;
 }
 
 /**
@@ -40,7 +45,9 @@ export function buildNArray(n) {
  * @returns {string} the longest string in `strings`
  */
 export function getLongestString(strings) {
-  // TODO
+  return strings.reduce((longest, current) =>
+    current.length > longest.length ? current : longest
+  );
 }
 
 /**
@@ -48,7 +55,7 @@ export function getLongestString(strings) {
  * @returns {number} the number of students present
  */
 export function countPresent(attendance) {
-  // TODO
+  return attendance.filter(student => student.present).length;
 }
 
 /**
@@ -62,5 +69,10 @@ export function countPresent(attendance) {
  * @returns `null` if `dna` is not a string
  */
 export function complementDNA(dna) {
-  // TODO
+const pairs = { A: 'T', T: 'A', C: 'G', G: 'C' };
+  return dna
+    .split('')
+    .map(base => pairs[base])
+    .join('');
+}
 }
